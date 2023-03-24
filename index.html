@@ -4,13 +4,142 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Gian's movies</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Dosis:wght@700;800&family=Red+Hat+Display:wght@400;500&display=swap" rel="stylesheet" />
     <link rel="stylesheet" href="./css/index.css">
+    <link rel="shortcut icon" href="./css/favicon.png" type="image/x-icon">
+    <script src="https://kit.fontawesome.com/167c5f5410.js" crossorigin="anonymous"></script>
+    <title>Gian's movies</title>
 </head>
 <body>
-    <h1>GIan's movies</h1>
+    <div id="overlay"></div>
+    <header>
+        <div class="icon-img-container">
+            <img src="./css/favicon.png" alt="movies" class="icon-img">
+        </div>
+        <h1 class="title">Gian's movies</h1>
+        <h1 class="header-title header-title--categoryView inactive">Acción</h1>
+        <nav>
+            
+            <ul id="menu">
+                <li><a href="#">Inicio</a></li>
+                <li><a href="#">Peliculas</a></li>
+                <li><a href="#">Géneros</a></li>
+            </ul>
+            
+        </nav>
+    </header>
+    <button class="hamburger" id="hamburger">
+        <div class="hamburger-top"></div>
+        <div class="hamburger-middle"></div>
+        <div class="hamburger-bottom"></div>
+    </button>
+
+    <section class="navigation">
+        <form id="form" class="form-navigation">
+            <input type="text" placeholder="Buscar películas...">
+            <button class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+        </form>
+    </section>
+
+    <section class="trending" id="trending">
+        <h2>Tendencias</h2>
+        <div class="films-container" id="trending-film-container">
+        </div>
+    </section>
+
+    <section class="categories" id="categories">
+            <h2>Categorías</h2>
+            <article class="categoriesPreview-list">
+            <div class="category-container">
+            <h3 id="id28" class="category-title">Romance</h3>
+            </div>
+            <div class="category-container">
+            <h3 id="id16" class="category-title">Drama</h3>
+            </div>
+            <div class="category-container">
+            <h3 id="id14" class="category-title">Acción</h3>
+            </div>
+            <div class="category-container">
+                <h3 id="id35" class="category-title">Fantasía</h3>
+                </div>
+            </article>
+    </section>
+
+    <section id="genericList" class="genericList-container inactive">
+        <div class="movie-container">
+        <img
+                src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                class="movie-img"
+                alt="Nombre de la película"
+              />
+        </div>
+        <div class="movie-container">
+        <img
+                src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                class="movie-img"
+                alt="Nombre de la película"
+              />
+        </div>
+        <div class="movie-container">
+        <img
+                src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                class="movie-img"
+                alt="Nombre de la película"
+              />
+        </div>
+        </section>
+
+        <section id="movieDetail" class="movieDetail-container inactive">
+            <h1 class="movieDetail-title">Deadpool</h1>
+            <span class="movieDetail-score">7.6</span>
+            <p class="movieDetail-description">
+            Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy's life.
+            </p>
+            <article class="categories-list">
+            <div class="category-container">
+            <h3 id="id28" class="category-title">Romance</h3>
+            </div>
+            <div class="category-container">
+            <h3 id="id16" class="category-title">Drama</h3>
+            </div>
+            <div class="category-container">
+            <h3 id="id14" class="category-title">Acción</h3>
+            </div>
+            </article>
+            <article class="relatedMovies-container">
+            <h2 class="relatedMovies-title">Películas similares</h2>
+            <div class="relatedMovies-scrollContainer">
+            <div class="movie-container">
+            <img
+                        src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                        class="movie-img"
+                        alt="Nombre de la película"
+                      />
+            </div>
+            <div class="movie-container">
+            <img
+                        src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                        class="movie-img"
+                        alt="Nombre de la película"
+                      />
+            </div>
+            <div class="movie-container">
+            <img
+                        src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                        class="movie-img"
+                        alt="Nombre de la película"
+                      />
+            </div>
+            </div>
+            </article>
+            </section>
+
+            <footer>&copy; Gianluca Procopio <br>Todos los derechos reservados</footer>
 
     <script src="./src/secrets.js"></script>
+    <script src="./src/styles.js"></script>
     <script src="./src/main.js"></script>
 </body>
 </html>
