@@ -1,0 +1,38 @@
+.container {
+    position: relative;
+}
+
+.container .slider {
+    display: flex;
+    padding: 2px;
+    object-fit: contain;
+    overflow: hidden;
+    scroll-behavior: smooth;
+}
+
+.container .slider img {
+    margin: 3px;
+}
+
+.container .control {
+    position: absolute;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background: #007aff;
+    cursor: pointer;
+    object-fit: contain;
+    padding: 10px;
+}
+
+.container .prev {
+    left: 0;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.container .next {
+    right: 0;
+    top: 50%;
+    transform: translate(50%, -50%);
+}
