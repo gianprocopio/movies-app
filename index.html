@@ -12,23 +12,24 @@
     <script src="https://kit.fontawesome.com/167c5f5410.js" crossorigin="anonymous"></script>
     <link rel="stylesheet" href="./css/slider.css">
 
-
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
     <title>Gian's movies</title>
 </head>
 <body>
     <div id="overlay"></div>
-    <header>
+    <header id="header" class="header-container">
+        <span class="header-arrow inactive"><i class="fa-solid fa-arrow-left"></i></span>
         <div class="icon-img-container">
             <img src="./css/favicon.png" alt="movies" class="icon-img">
         </div>
-        <h1 class="title">Gian's movies</h1>
-        <h1 class="header-title header-title--categoryView inactive">Acción</h1>
+        <h1 class="title header-title">Gian's movies</h1>
+        <h1 class="header-title header-title--categoryView inactive"></h1>
         <nav>
             
-            <ul id="menu">
-                <li><a href="#">Inicio</a></li>
-                <li><a href="#">Peliculas</a></li>
-                <li><a href="#">Géneros</a></li>
+            <ul id="menu" class="menu">
+                <li><a href="#home" class="item-menu1">Inicio</a></li>
+                <li><a href="#" class="item-menu2">Películas</a></li>
+                <li><a href="#" class="generos item-menu3">Categorías</a></li>
             </ul>
             
         </nav>
@@ -43,12 +44,15 @@
         <section class="navigation">
             <form id="form" class="form-navigation">
                 <input type="text" placeholder="Buscar películas...">
-                <button class="search-icon"><i class="fa-solid fa-magnifying-glass"></i></button>
+                <button class="search-icon" id="searchBtn"><i class="fa-solid fa-magnifying-glass"></i></button>
             </form>
         </section>
     
         <section class="trending" id="trending">
-            <h2>Tendencias</h2>
+            <div class="trendingPreview-header">
+                <h2 class="trendingPreview-title">Tendencias</h2>
+                <button class="trendingPreview-btn">Ver más</button>
+              </div>
             <div class="films-container container">
                 <img src="./css/img1.png" alt="" class="control prev">
                 <div class="slider" id="trending-film-container"></div>
@@ -59,6 +63,8 @@
             <div class="swiper-button-prev"></div>
             <div class="swiper-scrollbar"></div>
             <div class="swiper-pagination"></div>
+
+            <article class="trendingPreview-movieList"></article>
         </section>
     
         <section class="categories" id="categories">
@@ -69,73 +75,67 @@
         </section>
     
         <section id="genericList" class="genericList-container inactive">
-            <div class="movie-container">
+            <!-- <div class="movie-container">
             <img
                     src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
                     class="movie-img"
                     alt="Nombre de la película"
                   />
-            </div>
-            <div class="movie-container">
-            <img
-                    src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-                    class="movie-img"
-                    alt="Nombre de la película"
-                  />
-            </div>
-            <div class="movie-container">
-            <img
-                    src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-                    class="movie-img"
-                    alt="Nombre de la película"
-                  />
-            </div>
+            </div> -->
+            
             </section>
     
             <section id="movieDetail" class="movieDetail-container inactive">
                 <h1 class="movieDetail-title">Deadpool</h1>
                 <span class="movieDetail-score">7.6</span>
                 <p class="movieDetail-description">
-                Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy's life.
+                  Wisecracking mercenary Deadpool battles the evil and powerful Cable and other bad guys to save a boy's life.
                 </p>
+            
                 <article class="categories-list">
-                <div class="category-container">
-                <h3 id="id28" class="category-title">Romance</h3>
-                </div>
-                <div class="category-container">
-                <h3 id="id16" class="category-title">Drama</h3>
-                </div>
-                <div class="category-container">
-                <h3 id="id14" class="category-title">Acción</h3>
-                </div>
+                  <div class="category-container">
+                    <h3 id="id28" class="category-title">Romance</h3>
+                  </div>
+            
+                  <div class="category-container">
+                    <h3 id="id16" class="category-title">Drama</h3>
+                  </div>
+            
+                  <div class="category-container">
+                    <h3 id="id14" class="category-title">Acción</h3>
+                  </div>
                 </article>
+            
                 <article class="relatedMovies-container">
-                <h2 class="relatedMovies-title">Películas similares</h2>
-                <div class="relatedMovies-scrollContainer">
-                <div class="movie-container">
-                <img
-                            src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-                            class="movie-img"
-                            alt="Nombre de la película"
-                          />
-                </div>
-                <div class="movie-container">
-                <img
-                            src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-                            class="movie-img"
-                            alt="Nombre de la película"
-                          />
-                </div>
-                <div class="movie-container">
-                <img
-                            src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
-                            class="movie-img"
-                            alt="Nombre de la película"
-                          />
-                </div>
-                </div>
+                  <h2 class="relatedMovies-title">Películas similares</h2>
+            
+                  <div class="relatedMovies-scrollContainer">
+                    <div class="movie-container">
+                      <img
+                        src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                        class="movie-img"
+                        alt="Nombre de la película"
+                      />
+                    </div>
+                    
+                    <div class="movie-container">
+                      <img
+                        src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                        class="movie-img"
+                        alt="Nombre de la película"
+                      />
+                    </div>
+                    
+                    <div class="movie-container">
+                      <img
+                        src="https://image.tmdb.org/t/p/w300/adOzdWS35KAo21r9R4BuFCkLer6.jpg"
+                        class="movie-img"
+                        alt="Nombre de la película"
+                      />
+                    </div>
+                  </div>
                 </article>
-                </section>
+              </section>
     
                 <footer>&copy; Gianluca Procopio <br>Todos los derechos reservados</footer>
     </main>
@@ -144,7 +144,9 @@
 
     <script src="./src/secrets.js"></script>
     <script src="./src/styles.js"></script>
+    <script src="./src/nodes.js"></script>
     <script src="./src/main.js"></script>
     <script src="./src/slider.js"></script>
+    <script src="./src/navigation.js"></script>
 </body>
 </html>
