@@ -98,7 +98,7 @@ ul{
   height: 250px;
   width: 250px;
   transition: all 0.3s;
-  z-index: 3;
+  z-index: 10000;
 }
 ul li a{
     text-decoration: none;
@@ -161,7 +161,7 @@ ul li a:hover{
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
-    z-index: 3;
+    z-index: 2;
 }
 
 .navigation{
@@ -193,6 +193,7 @@ input{
     max-width: 100%;
     margin: 0 auto;
     display: block;
+    margin-bottom: 50px;
 }
 .search-icon{
     background-color: var(--fondo3);
@@ -328,6 +329,7 @@ input{
     justify-content: center;
     flex-direction: column;
     align-items: center;
+    cursor: pointer;
   }
   
   .genericList-container .movie-img {
@@ -340,11 +342,11 @@ input{
   }
   .movie-container .movie-img{
     height: 225px;
-  min-height: 225px;
-  max-height: 225px;
-  width: 150px;
-  min-width: 150px;
-  max-width: 150px;
+    min-height: 225px;
+    max-height: 225px;
+    width: 150px;
+    min-width: 150px;
+    max-width: 150px;
   }
 
 /* Movie Detail */
@@ -355,7 +357,7 @@ input{
   margin-top: 403px;
   z-index: 1;
   position: absolute;
-  background-color: var(--boton);
+  background-color: #000;
   overflow-y: hidden;
   overflow-y: hidden;
   overflow-x: hidden;
@@ -378,7 +380,8 @@ input{
   margin: 0 0 16px 0;
   padding: 0;
   font-size: 30px;
-  color: var(--font-family-text);
+  color: #fff;
+  font-family: var(--font-family-titles);
 }
 
 .movieDetail-score {
@@ -402,6 +405,7 @@ input{
   font-size: 18px;
   font-family: var(--font-family-text);
   font-weight: var(--font-weight-text2);
+  color: #fff;
 }
 
 .relatedMovies-container {
@@ -458,7 +462,7 @@ input{
     justify-content: center;
     align-items: start;
     padding: 40px;
-    
+    cursor: pointer;
 }
 .trendingPreview-header {
   display: flex;
@@ -542,13 +546,14 @@ input{
 }
 
 .header-container--long {
-  background-image: url('https://pics.filmaffinity.com/Deadpool-777527803-large.jpg');
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%), url(https://pics.filmaffinity.com/Deadpool-777527803-large.jpg);
-  background-size: cover !important;
+  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%);
   height: 480px;
   position: fixed;
   top: 0;
   width: 100%;
+  height: 100%;
+  background-repeat: no-repeat;
+  background-size: cover !important;
 }
 
 .header-container--categoryView {
@@ -575,7 +580,7 @@ input{
 .header-title--categoryView {
   color: var(--boton);
   font-family: var(--font-family-titles);
-  font-size: 50px;
+  font-size: 40px;
   margin: 0 auto;
   /* margin-bottom: 0; */
 }
@@ -589,4 +594,18 @@ input{
   footer{
     display: none;
   }
+}
+
+.title-error{
+  color: #fff;
+  font-family: var(--font-family-text);
+  font-size: 24px;
+  margin-bottom: 30px;
+}
+.img-error{
+  width: 300px;
+}
+.error-section{
+  display: flex;
+  flex-direction: column;
 }

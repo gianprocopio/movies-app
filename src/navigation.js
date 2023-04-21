@@ -1,7 +1,10 @@
 searchFormBtn.addEventListener('click', (e)=>{
     e.preventDefault()
     if(searchFormInput.value !== ""){
-        location.hash = "#search=";
+        location.hash = "#search=" + searchFormInput.value;
+        const [_, query] = location.hash.split('=');
+        headerCategoryTitle.innerHTML =decodeURI( `<h3>Resultado de: ${query}</h3>`)
+      headerCategoryTitle.classList.remove('inactive');
         searchFormInput.value = "";
     }
     
@@ -13,7 +16,10 @@ trendingBtn.addEventListener('click', ()=>{
 })
 
 arrowBtn.addEventListener('click', ()=>{
-    location.hash = "#home";
+    location.hash = window.history.back();
+    trendingFilmsContainer.innerHTML = "";
+    categoriesListContainer.innerHTML = ""
+    genericSection.innerHTML = "";
     footer.style.bottom = "1";
 })
 
@@ -21,7 +27,6 @@ window.addEventListener('DOMContentLoaded', navigator, false);
 window.addEventListener('hashchange', navigator, false);
 
 function navigator() {
-  console.log({ location });
   
   if (location.hash.startsWith('#trends')) {
     trendsPage();
@@ -33,7 +38,7 @@ function navigator() {
     // footer.style.bottom = "0";
     categoriesPage();
     
-  } else {
+  } else if(location.hash.startsWith('#home') || location.hash == '') {
     homePage();
   }
 }
@@ -79,22 +84,25 @@ function trendsPage(){
     // footer.classList.add('inactive')
 }
 function searchPage(){
-    footer.style.bottom = "0";
     headerSection.classList.remove('header-container--long');
     headerSection.style.background = "";
     arrowBtn.style.display = "block";
     arrowBtn.classList.add('header-arrow--white');
     headerTitle.classList.add('inactive');
     headerCategoryTitle.classList.remove('inactive');
-    searchForm.classList.add('inactive');
+    searchForm.classList.remove('inactive');
 
     trendingPreviewSection.classList.add('inactive');
     categoriesPreviewSection.classList.add('inactive');
     genericSection.classList.remove('inactive');
     movieDetailSection.classList.add('inactive');
-    footer.style.position = "absolute";
+    footer.classList.add('inactive');
     imgIconContainer.classList.add('inactive')
-    // footer.classList.add('inactive')
+    
+
+    const [_, query] = location.hash.split('=');
+    getMoviesBySearch(query);
+
 }
 function categoriesPage(){    
     footer.style.bottom = "0";
@@ -124,7 +132,6 @@ function categoriesPage(){
 function moviesPage(){
     footer.style.bottom = "0";
     headerSection.classList.add('header-container--long');
-    // headerSection.style.background = "";
     arrowBtn.style.display = "block";
     arrowBtn.classList.add('header-arrow--white');
     headerTitle.classList.add('inactive');
@@ -136,7 +143,10 @@ function moviesPage(){
     genericSection.classList.add('inactive');
     movieDetailSection.classList.remove('inactive');
     footer.style.position = "absolute";
-    imgIconContainer.classList.add('inactive')
-    // footer.classList.remove('inactive')
+    imgIconContainer.classList.add('inactive');
+
+    const [_, movieID] = location.hash.split('=');
+
+    getMovieById(movieID)
 }
 
