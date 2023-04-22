@@ -194,7 +194,7 @@ async function getMovieById(id){
 async function getSimilarMoviesById(id){
     try{
         const {data} = await api(`movie/${id}/similar`);
-
+        relatedMoviesContainer.innerHTML = "";
         const movies = data.results;
     
         movies.forEach(movie =>{
