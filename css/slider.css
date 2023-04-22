@@ -36,3 +36,16 @@
     top: 50%;
     transform: translate(50%, -50%);
 }
+
+#prev2 {
+    left: 0;
+    top: 100px;
+    transform: translate(-50%, -50%);
+    z-index: 20;
+}
+
+#next2 {
+    right: 0;
+    top: 100px;
+    transform: translate(50%, -50%);
+}

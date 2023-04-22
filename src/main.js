@@ -192,6 +192,37 @@ async function getMovieById(id){
 }
 
 async function getSimilarMoviesById(id){
-    const {data} = await api(`movie/${id}/similar`);
-    console.log(data);
+    try{
+        const {data} = await api(`movie/${id}/similar`);
+
+        const movies = data.results;
+    
+        movies.forEach(movie =>{
+            const movieContainer = document.createElement('div');
+            movieContainer.className = "movie-container";
+    
+            movieContainer.addEventListener('click', ()=>{
+                getMovieById(movie.id)
+            })
+    
+            const movieImg = document.createElement('img');
+    
+            movieImg.setAttribute('src', `${URL_IMG_POSTER + movie.poster_path}`);
+            movieImg.setAttribute('alt', movie.title);
+            movieImg.className = "movie-img";
+    
+            const movieTitle = document.createElement('h3');
+            movieTitle.textContent = movie.title;
+            movieTitle.className = "relatedMovie-title";
+    
+            movieContainer.append(movieImg);
+            movieContainer.append(movieTitle)
+    
+            relatedMoviesContainer.append(movieContainer);
+        })    
+    } catch{
+     throw new Error("Error at the API")       
+    }
+    
 }
+
