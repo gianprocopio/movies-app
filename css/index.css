@@ -41,6 +41,9 @@ html::-webkit-scrollbar-thumb{
   background: var(--boton);
   border-radius: 5px;
 }
+html{
+  scroll-behavior: smooth;
+}
 
 
 body{
@@ -95,10 +98,10 @@ ul{
   top: 95px;
   right: 20px;
   transform: translateX(120%);
-  height: 250px;
+  height: 200px;
   width: 250px;
   transition: all 0.3s;
-  z-index: 10000;
+  z-index: 100000;
 }
 ul li a{
     text-decoration: none;
@@ -161,7 +164,7 @@ ul li a:hover{
     width: 100%;
     height: 100%;
     background-color: rgba(0,0,0,0.5);
-    z-index: 2;
+    z-index: 1;
 }
 
 .navigation{
@@ -357,7 +360,7 @@ input{
   margin-top: 403px;
   z-index: 1;
   position: absolute;
-  background-color: #000;
+  background-color: var(--fondo);
   overflow: hidden;  
 }
 
@@ -408,6 +411,7 @@ input{
   margin-top: 24px;
   height: 250px;
   cursor: pointer;
+  width: 100%;
 }
 
 .relatedMovies-title {
@@ -551,14 +555,13 @@ input{
 }
 
 .header-container--long {
-  background: linear-gradient(180deg, rgba(0, 0, 0, 0.35) 19.27%, rgba(0, 0, 0, 0) 29.17%);
-  height: 480px;
   position: fixed;
   top: 0;
   width: 100%;
   height: 100%;
   background-repeat: no-repeat;
-  background-size: cover !important;
+  object-fit: cover;
+  background-position: center;
 }
 
 .header-container--categoryView {

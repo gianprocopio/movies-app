@@ -2,11 +2,9 @@ const hamburger = document.getElementById('hamburger');
 const menu = document.getElementById('menu');
 const overlay = document.getElementById('overlay');
 const itemsMenu1 = document.querySelector('.item-menu1');
-const itemsMenu2 = document.querySelector('.item-menu2');
 const itemsMenu3 = document.querySelector('.item-menu3');
 
 itemsMenu1.addEventListener('click', hideMenu);
-itemsMenu2.addEventListener('click', hideMenu);
 itemsMenu3.addEventListener('click', hideMenu);
 
 hamburger.addEventListener('click', hideMenu)
